@@ -1,0 +1,15 @@
+### Get all payments
+GET http://localhost:8080/api/payments
+Accept: application/json
+
+### Get payments filtered by amount (min 100, max 500)
+GET http://localhost:8080/api/payments?minAmount=100&maxAmount=500
+Accept: application/json
+
+### Get only accepted payments
+GET http://localhost:8080/api/payments?status=ACCEPTED
+Accept: application/json
+
+### FOR test the country logging
+GET http://localhost:8080/api/payments?minAmount=100&maxAmount=500
+X-Forwarded-For: 1.1.1.1

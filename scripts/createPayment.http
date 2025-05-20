@@ -1,0 +1,79 @@
+### Create SEPA Payment
+POST http://localhost:8080/api/payments
+Content-Type: application/json
+
+{
+  "type": "SEPA",
+  "amount": 150,
+  "currency": "EUR",
+  "debtorIban": "DE89370400440532013000",
+  "creditorIban": "LT121000011101001000",
+  "details": "Invoice #12345"
+}
+
+### Create SEPA Payment (Invalid Reciever IBAN Country)
+POST http://localhost:8080/api/payments
+Content-Type: application/json
+
+{
+"type": "SEPA",
+"amount": 150.75,
+"currency": "EUR",
+"debtorIban": "DE89370400440532013000",
+"creditorIban": "GB29NWBK60161331926819",
+"details": "Invalid SEPA payment"
+}
+
+### Create SEPA Payment (but Invalid currency)
+POST http://localhost:8080/api/payments
+Content-Type: application/json
+
+{
+  "type": "SEPA",
+  "amount": 150.75,
+  "currency": "USD",
+  "debtorIban": "DE89370400440532013000",
+  "creditorIban": "GB29NWBK60161331926819",
+  "details": "Invalid SEPA payment"
+}
+
+### Create SEPA Payment (Invalid debtorIban)
+POST http://localhost:8080/api/payments
+Content-Type: application/json
+
+{
+  "type": "SEPA",
+  "amount": 150,
+  "currency": "EUR",
+  "debtorIban": "231321312321",
+  "creditorIban": "LT121000011101001000",
+  "details": "Invoice #12345"
+}
+
+### Create SEPA Payment (Invalid creditorIban)
+POST http://localhost:8080/api/payments
+Content-Type: application/json
+
+{
+  "type": "SEPA",
+  "amount": 150,
+  "currency": "EUR",
+  "debtorIban": "DE89370400440532013000",
+  "creditorIban": "111",
+  "details": "Invoice #12345"
+}
+
+### Create SWIFT Payment
+POST http://localhost:8080/api/payments
+Content-Type: application/json
+
+{
+  "type": "SWIFT",
+  "amount": 520.00,
+  "currency": "USD",
+  "debtorIban": "US02999999999999999999",
+  "creditorIban": "JP02999999999999999999",
+  "details": "International transfer"
+}
+
+
